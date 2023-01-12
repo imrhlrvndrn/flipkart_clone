@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // Styles
-import './product_card.comp.scss'
+import './product_card.comp.scss';
 // import './Products.scss';
 
 // React components

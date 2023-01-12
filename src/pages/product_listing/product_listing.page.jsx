@@ -7,42 +7,40 @@ import './product_listing.page.scss';
 
 // components
 import { NavFilters, ProductCard, SidebarFilters } from '../../components';
+import { ApplyFilters } from '../../utils/filter.util';
 
 export const ProductListingPage = () => {
-    const [{ products }, dispatch] = useData();
-    // const [products, setProducts] = useState([]);
-    // const [filteredproducts, setFilteredProducts] = useState([]);
-
-    // const getData = () => {
-    //     JSON.parse(JSON.stringify(data));
-    //     setProducts(
-    //         data?.products?.map((product) => {
-    //             return {
-    //                 ...product,
-    //                 discount_price: Math.floor(
-    //                     product?.original_price -
-    //                         product?.original_price * (product?.discount_percentage / 100)
-    //                 ),
-    //             };
-    //         })
+    const [{ products, filters }, dispatch] = useData();
+    const [final_products, setFinalProducts] = useState([]);
+    // const sort_products_by_price = (products) =>
+    //     products?.sort((a, b) =>
+    //         filters?.price === 'Price - Low to High'
+    //             ? a?.discount_price - b?.discount_price
+    //             : b?.discount_price - a?.discount_price
     //     );
-    // };
+    // const filter_by_gender = (products) =>
+    //     products?.filter((product) => product?.category === filters?.gender?.toLowerCase());
+    // const filter_by_brand = (products) =>
+    //     products?.filter((product) => filters?.brands?.includes(product?.brand_name));
 
-    // useEffect(() => {
-    //     getData();
-    // }, []);
-
-    // useEffect(() => {
-    //     console.log('filetered Products');
-    // }, [filteredproducts]);
+    useEffect(() => {
+        const apply_filters = new ApplyFilters(products, filters);
+        setFinalProducts(
+            (prevState) =>
+                apply_filters
+                    ?.sort_by_price()
+                    ?.filter_by_gender()
+                    ?.filter_by_brand()
+                    ?.filter_by_size()?.products
+        );
+    }, [final_products, filters]);
 
     return (
         <div className='product_listing'>
             <SidebarFilters />
-            {/* <Filters products={products} setFilteredProducts={setFilteredProducts} /> */}
             <NavFilters />
             <div className='product_wrapper'>
-                {products?.map((product) => (
+                {final_products?.map((product) => (
                     <ProductCard key={product?.name} product={product} />
                 ))}
             </div>

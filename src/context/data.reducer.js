@@ -16,33 +16,85 @@ export const initial_state = {
             )
         ) || [],
     filters: {
-        price: '',
-        gender: '',
-        size: [],
-        brands: [],
+        price: 'Price - Low to High',
+        gender: 'Men',
+        sizes: ['L', 'XL'],
+        brands: ['MARKS & SPENCER'],
     },
 };
 
 export const reducers = (state, action) => {
     switch (action?.type) {
+        case 'SET_PRODUCTS': {
+            return { ...state, products: action?.payload };
+        }
+
         case 'RESET_FILTER': {
+            // action: { type, payload }
             let filter_reset;
-            const filters = Object.keys(state?.filters);
+            const filters = Object?.keys(state?.filters);
 
             // Checking if the payload is a valid filter or not
-            if (filters.includes(action?.payload)) {
+            if (filters?.includes(action?.payload)) {
                 // Checking which of the filters need to be reset
                 if (action?.payload === 'price' || action?.payload === 'gender') {
                     filter_reset = { ...state?.filters, [action?.payload]: '' };
-                } else if (action?.payload === 'size' || action?.payload === 'brands') {
+                } else if (action?.payload === 'sizes' || action?.payload === 'brands') {
                     filter_reset = { ...state?.filters, [action?.payload]: [] };
                 }
             } else if (action?.payload === 'all') {
                 // Reseting all the filters
-                filter_reset = { price: '', gender: '', size: [], brands: [] };
+                filter_reset = { price: 'Price - Low to High', gender: '', sizes: [], brands: [] };
             }
 
             return { ...state, filters: filter_reset };
+        }
+
+        case 'ADD_FILTER': {
+            // action: { type, filter_type, payload }
+            let added_filter;
+            const filters = Object?.keys(state?.filters);
+
+            // Checking if the payload is a valid filter or not
+            if (filters?.includes(action?.filter_type)) {
+                // Checking which of the filters need to be reset
+                if (action?.filter_type === 'price' || action?.filter_type === 'gender') {
+                    added_filter = { ...state?.filters, [action?.filter_type]: action?.payload };
+                } else if (action?.filter_type === 'sizes' || action?.filter_type === 'brands') {
+                    added_filter = {
+                        ...state?.filters,
+                        [action?.filter_type]: [
+                            ...state?.filters?.[action?.filter_type],
+                            action?.payload,
+                        ],
+                    };
+                }
+            }
+
+            return { ...state, filters: added_filter };
+        }
+
+        case 'REMOVE_FILTER': {
+            // action: { type, filter_type, payload }
+            let added_filter;
+            const filters = Object?.keys(state?.filters);
+
+            // Checking if the payload is a valid filter or not
+            if (filters?.includes(action?.filter_type)) {
+                // Checking which of the filters need to be reset
+                if (action?.filter_type === 'price' || action?.filter_type === 'gender') {
+                    added_filter = { ...state?.filters, [action?.filter_type]: '' };
+                } else if (action?.filter_type === 'sizes' || action?.filter_type === 'brands') {
+                    added_filter = {
+                        ...state?.filters,
+                        [action?.filter_type]: state?.filters?.[action?.filter_type]?.filter(
+                            (filter) => filter !== action?.payload
+                        ),
+                    };
+                }
+            }
+
+            return { ...state, filters: added_filter };
         }
 
         default: {

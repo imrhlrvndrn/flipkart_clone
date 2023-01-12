@@ -5,6 +5,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    height: max-content;
     // margin-bottom: 1rem;
 
     h1,
@@ -25,6 +26,7 @@
 .sidebar_filters {
     position: sticky;
     top: 0;
+    min-height: 100vh;
     max-height: 100vh;
     grid-area: filter;
     width: 300px;
@@ -73,6 +75,12 @@
                     color: mixins.$flipkart_blue;
                     border: 2px solid mixins.$flipkart_blue;
                     background-color: mixins.$faded_flipkart_blue;
+
+                    &:hover {
+                        color: mixins.$flipkart_blue;
+                        border: 2px solid mixins.$flipkart_blue;
+                        background-color: mixins.$faded_flipkart_blue;
+                    }
                 }
 
                 &:hover {
