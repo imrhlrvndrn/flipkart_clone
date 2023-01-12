@@ -1,0 +1,51 @@
+@use '../../shared/scss/mixins.scss';
+
+.product {
+    // height: 450px;
+    display: flex;
+    flex-direction: column;
+
+    img {
+        width: 100%;
+        height: 70%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .content {
+        width: 100%;
+        height: 30%;
+        text-align: left;
+        padding: 1rem;
+        background-color: mixins.$white;
+
+        .brand_name {
+            font-size: 0.8rem;
+            color: mixins.$gray;
+            font-weight: 600;
+        }
+
+        .pricing {
+            display: flex;
+            margin-top: 0.5rem;
+
+            div {
+                margin-right: 1rem;
+            }
+
+            .discount_price {
+                font-weight: 600;
+            }
+
+            .original_price {
+                text-decoration: line-through;
+                color: mixins.$gray;
+            }
+
+            .discount_percent {
+                color: mixins.$green;
+                font-weight: 600;
+            }
+        }
+    }
+}

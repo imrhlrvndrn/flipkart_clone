@@ -1,0 +1,16 @@
+@import './mixins.scss';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Manrope', sans-serif;
+}
+
+body {
+    background-color: $background;
+}

@@ -1,0 +1,19 @@
+.product_listing {
+    display: grid;
+    max-height: 100vh;
+    overflow-y: auto;
+    grid-template-areas:
+        'filter nav nav nav'
+        'filter product product product'
+        'filter product product product'
+        'filter product product product';
+}
+
+.product_wrapper {
+    max-height: calc(100vh - 56px);
+    grid-area: product;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem;
+}

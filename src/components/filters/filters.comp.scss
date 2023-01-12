@@ -1,0 +1,86 @@
+@use '../../shared/scss/mixins.scss';
+
+.nav_filters {
+    grid-area: nav;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // margin-bottom: 1rem;
+
+    h1,
+    p {
+        padding: 1rem;
+    }
+
+    p {
+        cursor: pointer;
+
+        &.active {
+            color: mixins.$flipkart_blue;
+            border-bottom: 2px solid mixins.$flipkart_blue;
+        }
+    }
+}
+
+.sidebar_filters {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    grid-area: filter;
+    width: 300px;
+    padding: 1rem;
+    // margin-right: 1rem;
+    background-color: mixins.$white;
+
+    .filter_heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .secondary {
+            font-size: 0.8rem;
+            font-weight: 600;
+            background-color: mixins.$background;
+            color: mixins.$black;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            // background-color: transparent;
+            padding: 0.2rem 1rem;
+        }
+    }
+
+    .filter_group {
+        margin-top: 2rem;
+
+        .filter_options {
+            gap: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+
+            .filter_option {
+                cursor: pointer;
+                border-radius: 10px;
+                padding: 0.5rem 1rem;
+                border: 2px solid mixins.$gray;
+                transition: 0.4s all ease-in-out;
+
+                &.selected {
+                    font-weight: 600;
+                    color: mixins.$flipkart_blue;
+                    border: 2px solid mixins.$flipkart_blue;
+                    background-color: mixins.$faded_flipkart_blue;
+                }
+
+                &:hover {
+                    color: mixins.$flipkart_blue;
+                    border: 2px solid transparent;
+                    background-color: mixins.$faded_flipkart_blue;
+                }
+            }
+        }
+    }
+}

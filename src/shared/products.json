@@ -1,0 +1,85 @@
+{
+    "products": [
+        {
+            "brand_name": "Levi's",
+            "name": "Men Regular Fit Solid Spread Collar Casual Shirt",
+            "original_price": 1169,
+            "discount_percentage": 55,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/kjn6qvk0-0/shirt/e/v/3/xl-34226-0058-levi-s-original-imafz63dmzgschbg.jpeg?q=50",
+            "available_sizes": ["S", "M", "L", "XL", "XXL"],
+            "category": "men"
+        },
+        {
+            "brand_name": "Levi's",
+            "name": "Printed Men Round Neck Black T-Shirt",
+            "original_price": 1499,
+            "discount_percentage": 55,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/k66sh3k0/t-shirt/k/c/v/m-38719-0038-levi-s-original-imafzzvvgmehzgxf.jpeg?q=50",
+            "available_sizes": ["S", "M", "L", "XL", "XXL"],
+            "category": "men"
+        },
+        {
+            "brand_name": "Roadster",
+            "name": "Full Sleeve Solid Men Jacket",
+            "original_price": 1999,
+            "discount_percentage": 50,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/jvtujrk0/jacket/9/g/f/m-6411326-roadster-original-imafgmrz855hcrxp.jpeg?q=50",
+            "available_sizes": ["S", "M", "L", "XL", "XXL"],
+            "category": "men"
+        },
+        {
+            "brand_name": "Roadster",
+            "name": "Printed Men Round Neck Maroon T-Shirt",
+            "original_price": 599,
+            "discount_percentage": 55,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/jsc3ssw0/t-shirt/u/d/z/xl-2475722-roadster-original-imafdwq3hxhdhmvm.jpeg?q=50",
+            "available_sizes": ["S", "M", "L", "XL", "XXL"],
+            "category": "men"
+        },
+        {
+            "brand_name": "MARKS & SPENCER",
+            "name": "Checkered Men Polo Neck Maroon T-Shirt",
+            "original_price": 1999,
+            "discount_percentage": 65,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/jtn9bww0/t-shirt/q/p/y/s-3091m-marks-spencer-original-imafeyenuxshmchb.jpeg?q=50",
+            "available_sizes": ["S", "M", "L", "XL", "XXL"],
+            "category": "men"
+        },
+        {
+            "brand_name": "MARKS & SPENCER",
+            "name": "Self Design Men Grey Regular Shorts",
+            "original_price": 2499,
+            "discount_percentage": 40,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/jt641ow0/short/s/m/k/s-t17-7779b-blue-mix-marks-spencer-original-imafekzjqezcgmff.jpeg?q=50",
+            "available_sizes": ["S", "M", "L", "XL", "XXL"],
+            "category": "men"
+        },
+        {
+            "brand_name": "Q-Rious",
+            "name": "Regular Fit Women White Cotton Blend Trousers",
+            "original_price": 999,
+            "discount_percentage": 68,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/khz693k0-0/trouser/5/d/b/xxl-c-pants-white-q-rious-original-imafxvf6xzy9hs7z.jpeg?q=50",
+            "available_sizes": ["M", "L", "XL", "XXL"],
+            "category": "women"
+        },
+        {
+            "brand_name": "Forever 21",
+            "name": "Casual Short Sleeve Solid Women White Top",
+            "original_price": 1499,
+            "discount_percentage": 52,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/kihqz680/top/d/k/p/s-36868804-forever-21-original-imafy94tbx9f8rmm.jpeg?q=50",
+            "available_sizes": ["S", "M", "L", "XL", "XXL"],
+            "category": "women"
+        },
+        {
+            "brand_name": "Forever 21",
+            "name": "Casual Short Sleeve Self Design Women White Top",
+            "original_price": 999,
+            "discount_percentage": 0,
+            "image_url": "https://rukminim1.flixcart.com/image/880/1056/kihqz680/top/d/d/8/s-41243001-forever-21-original-imafy7gngycz4p2e.jpeg?q=50",
+            "available_sizes": ["M", "L", "XL"],
+            "category": "women"
+        }
+    ]
+}
