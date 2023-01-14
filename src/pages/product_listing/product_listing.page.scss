@@ -1,20 +1,45 @@
+@use '../../shared/scss/mixins.scss';
+
 .product_listing {
     display: grid;
-    max-height: 100vh;
     overflow-y: auto;
+    max-height: 100vh;
+    grid-template-rows: max-content repeat(3, 1fr);
+    grid-template-columns: 300px repeat(3, 1fr);
     grid-template-areas:
         'filter nav nav nav'
         'filter product product product'
         'filter product product product'
         'filter product product product';
+
+    @include mixins.tablet {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            'nav nav nav nav'
+            'product product product product'
+            'product product product product'
+            'product product product product';
+    }
 }
 
 .product_wrapper {
-    max-height: calc(100vh - 56px);
-    grid-area: product;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
     padding: 1rem;
-    // grid-auto-rows: 500px;
+    display: grid;
+    grid-gap: 1rem;
+    grid-area: product;
+    height: max-content;
+    grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+
+    @include mixins.tablet {
+        width: 100%;
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 2rem;
+        grid-column: 1 / -1;
+        color: mixins.$gray;
+    }
 }

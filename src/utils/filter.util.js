@@ -5,23 +5,25 @@ export class ApplyFilters {
     }
 
     sort_by_price() {
-        console.log(
-            'sorted products => ',
-            this.products?.map((p) => p.discount_price)
-        );
-        this.products = this.products?.sort((a, b) =>
-            this.filters?.price === 'Price - Low to High'
-                ? a?.discount_price - b?.discount_price
-                : b?.discount_price - a?.discount_price
-        );
+        if (!this?.filters?.price) return this;
+        else {
+            this.products = [
+                ...this?.products?.sort((a, b) => {
+                    if (this?.filters?.price === 'Price - Low to High')
+                        return a?.discount_price - b?.discount_price;
+                    else if (this?.filters?.price === 'Price - High to Low')
+                        return b?.discount_price - a?.discount_price;
+                }),
+            ];
+        }
         return this;
     }
 
     filter_by_gender() {
         if (!this?.filters?.gender) return this;
         else
-            this.products = this.products?.filter(
-                (product) => product?.category === this.filters?.gender?.toLowerCase()
+            this.products = this?.products?.filter(
+                (product) => product?.category === this?.filters?.gender?.toLowerCase()
             );
 
         return this;
@@ -30,8 +32,8 @@ export class ApplyFilters {
     filter_by_brand() {
         if (!this?.filters?.brands?.length) return this;
         else
-            this.products = this.products?.filter((product) =>
-                this.filters?.brands?.includes(product?.brand_name)
+            this.products = this?.products?.filter((product) =>
+                this?.filters?.brands?.includes(product?.brand_name)
             );
 
         return this;
@@ -40,9 +42,9 @@ export class ApplyFilters {
     filter_by_size() {
         if (!this?.filters?.sizes?.length) return this;
         else
-            this.products = this.products?.filter(
+            this.products = this?.products?.filter(
                 (product) =>
-                    product?.available_sizes?.filter((size) => this.filters?.sizes?.includes(size))
+                    product?.available_sizes?.filter((size) => this?.filters?.sizes?.includes(size))
                         ?.length > 0
             );
 

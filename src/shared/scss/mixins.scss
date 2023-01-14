@@ -5,3 +5,15 @@ $gray: rgba(0, 0, 0, 0.3);
 $black: rgb(0, 0, 0);
 $white: rgb(255, 255, 255);
 $green: rgb(62, 145, 65);
+
+@mixin tablet {
+    @media only screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media only screen and (max-width: 764px) {
+        @content;
+    }
+}

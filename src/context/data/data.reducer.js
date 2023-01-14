@@ -1,4 +1,4 @@
-import products from '../shared/products.json';
+import products from '../../shared/products.json';
 
 export const initial_state = {
     products:
@@ -17,13 +17,14 @@ export const initial_state = {
         ) || [],
     filters: {
         price: 'Price - Low to High',
-        gender: 'Men',
-        sizes: ['L', 'XL'],
-        brands: ['MARKS & SPENCER'],
+        gender: '',
+        sizes: [],
+        brands: [],
     },
 };
 
 export const reducers = (state, action) => {
+    console.log(`action(${action?.type}) => `, action?.payload);
     switch (action?.type) {
         case 'SET_PRODUCTS': {
             return { ...state, products: action?.payload };
@@ -76,16 +77,16 @@ export const reducers = (state, action) => {
 
         case 'REMOVE_FILTER': {
             // action: { type, filter_type, payload }
-            let added_filter;
+            let removed_filter = null;
             const filters = Object?.keys(state?.filters);
 
             // Checking if the payload is a valid filter or not
             if (filters?.includes(action?.filter_type)) {
                 // Checking which of the filters need to be reset
-                if (action?.filter_type === 'price' || action?.filter_type === 'gender') {
-                    added_filter = { ...state?.filters, [action?.filter_type]: '' };
+                if (action?.filter_type === 'gender') {
+                    removed_filter = { ...state?.filters, [action?.filter_type]: '' };
                 } else if (action?.filter_type === 'sizes' || action?.filter_type === 'brands') {
-                    added_filter = {
+                    removed_filter = {
                         ...state?.filters,
                         [action?.filter_type]: state?.filters?.[action?.filter_type]?.filter(
                             (filter) => filter !== action?.payload
@@ -94,7 +95,7 @@ export const reducers = (state, action) => {
                 }
             }
 
-            return { ...state, filters: added_filter };
+            return { ...state, filters: removed_filter || state?.filters };
         }
 
         default: {
