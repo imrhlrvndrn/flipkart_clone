@@ -10,12 +10,11 @@ This project is a clone of the popular shopping service, Flipkart. This prototyp
 
 ## Features
 
-- Sort products based on their pricing
-- Filter products based on Brands, Sizes & Ideal for (Men/Women)
-- The filters can be added & removed individually as per the choice of the end-user
-
+-   Sort products based on their pricing
+-   Filter products based on Brands, Sizes & Ideal for (Men/Women)
+-   The filters can be added & removed individually as per the choice of the end-user
 
 ## Built With
 
-- ReactJS
-- Sass
+-   ReactJS
+-   Sass
