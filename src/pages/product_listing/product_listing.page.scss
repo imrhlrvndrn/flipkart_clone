@@ -4,10 +4,11 @@
     display: grid;
     overflow-y: auto;
     max-height: 100vh;
-    grid-template-rows: max-content repeat(3, 1fr);
+    grid-template-rows: max-content max-content repeat(3, 1fr);
     grid-template-columns: 300px repeat(3, 1fr);
     grid-template-areas:
-        'filter nav nav nav'
+        'nav nav nav nav'
+        'filter nav_filter nav_filter nav_filter'
         'filter product product product'
         'filter product product product'
         'filter product product product';
@@ -16,6 +17,7 @@
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas:
             'nav nav nav nav'
+            'nav_filter nav_filter nav_filter nav_filter'
             'product product product product'
             'product product product product'
             'product product product product';

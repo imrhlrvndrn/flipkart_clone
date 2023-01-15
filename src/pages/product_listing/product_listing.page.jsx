@@ -7,7 +7,7 @@ import { useData } from '../../context';
 import './product_listing.page.scss';
 
 // components
-import { NavFilters, ProductCard, SidebarFilters } from '../../components';
+import { Nav, NavFilters, ProductCard, SidebarFilters } from '../../components';
 
 // utilities
 import { ApplyFilters } from '../../utils/filter.util';
@@ -38,6 +38,7 @@ export const ProductListingPage = () => {
 
     return (
         <div className='product_listing'>
+            <Nav />
             {_window?.width > 1200 && <SidebarFilters />}
             <NavFilters setFilterMenu={setFilterMenu} />
             <div className='product_wrapper'>

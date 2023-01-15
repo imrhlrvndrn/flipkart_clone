@@ -2,8 +2,8 @@
 
 .nav_filters {
     position: sticky;
-    top: 0;
-    grid-area: nav;
+    top: 60px;
+    grid-area: nav_filter;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -47,10 +47,10 @@
 
 .sidebar_filters {
     position: sticky;
-    top: 0;
+    top: 60px;
     // min-height: 100vh;
     // max-height: 100vh;
-    height: 100vh;
+    height: calc(100vh - 60px);
     grid-area: filter;
     width: 300px;
     padding: 1rem;
