@@ -12,7 +12,7 @@ import './filters.comp.scss';
 // hooks
 import { useWindowSize } from '../../hooks';
 
-export const NavFilters = ({ setFilterMenu }) => {
+export const NavFilters = () => {
     const _window = useWindowSize();
     const { showModal } = useModalManager();
     const [{ filters }, dispatch] = useData();
@@ -22,7 +22,6 @@ export const NavFilters = ({ setFilterMenu }) => {
             <div className='nav_filters'>
                 <svg
                     onClick={() => showModal('FILTER_MODAL')}
-                    // onClick={() => setFilterMenu((prevState) => !prevState)}
                     stroke='currentColor'
                     fill='currentColor'
                     strokeWidth='0'
@@ -64,18 +63,19 @@ export const NavFilters = ({ setFilterMenu }) => {
         </div>
     );
 };
-export const SidebarFilters = ({ setFilterMenu }) => {
+export const SidebarFilters = () => {
     const _window = useWindowSize();
+    const { hideModal } = useModalManager();
     const [{ filters }, dispatch] = useData();
 
     useEffect(() => {
         const close_filter = (event) => {
-            console.log('evenet => ', event);
-            if (event?.key === 'Escape' && _window?.width < 1200) setFilterMenu(false);
+            if (event?.key === 'Escape' && _window?.width < 1200) hideModal();
         };
+
         document.addEventListener('keydown', close_filter);
 
-        return () => document.removeEventListener('keypress', close_filter);
+        return () => document.removeEventListener('keydown', close_filter);
     }, []);
 
     return (

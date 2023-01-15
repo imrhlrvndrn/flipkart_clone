@@ -20,7 +20,6 @@ import { Modal } from '../../layouts';
 
 export const ProductListingPage = () => {
     const _window = useWindowSize();
-    const [show_filter_menu, setFilterMenu] = useState(false);
     const [{ products, filters }, dispatch] = useData();
     const [final_products, setFinalProducts] = useState([]);
 
@@ -40,7 +39,7 @@ export const ProductListingPage = () => {
         <div className='product_listing'>
             <Nav />
             {_window?.width > 1200 && <SidebarFilters />}
-            <NavFilters setFilterMenu={setFilterMenu} />
+            <NavFilters />
             <div className='product_wrapper'>
                 {final_products?.length <= 0 ? (
                     <h1>No products match current filters</h1>

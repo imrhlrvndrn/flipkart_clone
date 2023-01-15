@@ -15,7 +15,6 @@
         justify-content: flex-end;
         align-items: center;
     }
-    // margin-bottom: 1rem;
 
     h1,
     p {
@@ -48,13 +47,10 @@
 .sidebar_filters {
     position: sticky;
     top: 60px;
-    // min-height: 100vh;
-    // max-height: 100vh;
     height: calc(100vh - 60px);
     grid-area: filter;
     width: 300px;
     padding: 1rem;
-    // margin-right: 1rem;
     background-color: mixins.$white;
 
     @include mixins.tablet {
@@ -68,13 +64,12 @@
         height: 60%;
         overflow-y: auto;
         margin: 0 auto;
-        z-index: 1;
+        z-index: 4;
     }
 
     @include mixins.phone {
         width: 98%;
         top: 99.5%;
-        // border-radius: 10px 10px 0 0;
         transform: translate(-50%, -100%);
         height: 80vh;
     }
@@ -86,15 +81,14 @@
         margin-bottom: 1rem;
 
         .secondary {
-            font-size: 0.8rem;
-            font-weight: 600;
-            background-color: mixins.$background;
-            color: mixins.$black;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
             border-radius: 10px;
-            // background-color: transparent;
+            color: mixins.$black;
             padding: 0.2rem 1rem;
+            background-color: mixins.$background;
         }
     }
 
