@@ -21,6 +21,7 @@ export const initial_state = {
         sizes: [],
         brands: [],
     },
+    search_query: '',
 };
 
 export const reducers = (state, action) => {
@@ -96,6 +97,10 @@ export const reducers = (state, action) => {
             }
 
             return { ...state, filters: removed_filter || state?.filters };
+        }
+
+        case 'UPDATE_SEARCH_QUERY': {
+            return { ...state, search_query: action?.payload || '' };
         }
 
         default: {

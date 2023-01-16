@@ -1,7 +1,22 @@
 export class ApplyFilters {
-    constructor(products, filters) {
+    constructor(products, filters, query) {
         this.filters = filters;
         this.products = products;
+        this.query = query || '';
+    }
+
+    search_products() {
+        if (!this.query) return this;
+        else
+            this.products = [
+                ...this?.products?.filter(
+                    (product) =>
+                        product?.name?.toLowerCase()?.includes(this?.query?.toLowerCase()) ||
+                        product?.brand_name?.toLowerCase()?.includes(this?.query?.toLowerCase())
+                ),
+            ];
+
+        return this;
     }
 
     sort_by_price() {

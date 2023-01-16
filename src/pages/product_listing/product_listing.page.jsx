@@ -20,20 +20,21 @@ import { Modal } from '../../layouts';
 
 export const ProductListingPage = () => {
     const _window = useWindowSize();
-    const [{ products, filters }, dispatch] = useData();
+    const [{ products, filters, search_query }, dispatch] = useData();
     const [final_products, setFinalProducts] = useState([]);
 
     useEffect(() => {
-        const apply_filters = new ApplyFilters(products, filters);
+        const apply_filters = new ApplyFilters(products, filters, search_query);
         setFinalProducts(
             (prevState) =>
                 apply_filters
+                    ?.search_products()
                     ?.sort_by_price()
                     ?.filter_by_gender()
                     ?.filter_by_brand()
                     ?.filter_by_size()?.products
         );
-    }, [filters]);
+    }, [filters, search_query]);
 
     return (
         <div className='product_listing'>
